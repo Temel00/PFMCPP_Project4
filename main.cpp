@@ -218,14 +218,10 @@ FloatType& FloatType::divide(float value)
 {
         if(value == 0.0f)
     {
-        std::cout << "error, integer division by zero will crash the program! \n" << "returning previous" << std::endl;
-
-        return *this;
-    }else
-    {
+        std::cout << "warning: floating point division by zero!" << std::endl;
+    }
         *floatPtr /= value;
         return *this;
-    }
 }
 
 FloatType& FloatType::add(const FloatType& ft)
@@ -310,14 +306,10 @@ DoubleType& DoubleType::divide(double value)
 {
     if(value == 0.0)
     {
-        std::cout << "error, integer division by zero will crash the program! \n" << "returning previous" << std::endl;
-
-        return *this;
-    }else
-    {
+        std::cout << "warning: floating point division by zero!" << std::endl;
+    }
         *doublePtr /= value;
         return *this;
-    }
 }
 
 DoubleType& DoubleType::add(const FloatType& ft)
@@ -402,8 +394,7 @@ IntType& IntType::divide(int value)
 {
     if(value == 0)
     {
-        std::cout << "error, integer division by zero will crash the program! \n" << "returning previous" << std::endl;
-
+        std::cout << "error: integer division by zero is an error and will crash the program!" << std::endl;
         return *this;
     }else
     {
@@ -513,7 +504,7 @@ int main()
     std::cout << "IntType subtract result=" << *it.subtract(2).intPtr << std::endl;
     std::cout << "IntType multiply result=" << *it.multiply(2).intPtr << std::endl;
     std::cout << "IntType divide result=" << *it.divide(3).intPtr << std::endl << std::endl;
-    std::cout << "Chain calculation = " << (it.multiply(1000).divide(2).subtract(10).add(100)).intPtr << std::endl;
+    std::cout << "Chain calculation = " << (*it.multiply(1000).divide(2).subtract(10).add(100).intPtr) << std::endl;
 
         // FloatType object instanciation and method tests
     // --------
