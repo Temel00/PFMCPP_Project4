@@ -395,7 +395,8 @@ IntType& IntType::divide(int value)
     if(value == 0)
     {
         std::cout << "error: integer division by zero is an error and will crash the program!" << std::endl;
-    }else
+    }
+    else
     {
         *intPtr /= value;
     }
